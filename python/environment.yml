@@ -1,0 +1,14 @@
+name: disperse_wrapper
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.10
+  - numpy>=1.24
+  - packaging>=23
+  # optional
+  - networkx>=3.0
+  - h5py>=3.8
+  - pip
+  - pip:
+      - disperse-wrapper[graph,io,dev]
