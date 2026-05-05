@@ -1,2 +1,0 @@
-disperse_wrapper
-disperse_wrapper_gui

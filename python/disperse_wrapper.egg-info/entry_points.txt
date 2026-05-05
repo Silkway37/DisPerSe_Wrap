@@ -1,3 +1,0 @@
-[console_scripts]
-disperse-wrapper = disperse_wrapper.cli:main
-disperse-wrapper-gui = disperse_wrapper_gui.main_window:main
