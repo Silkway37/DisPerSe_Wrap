@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "disperse-wrapper"
+version = "0.1.0"
+description = "Python wrapper for DisPerSE topology analysis tools"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "DisPerSe_Wrap contributors"},
+]
+keywords = ["disperse", "topology", "cosmic web", "filaments", "astrophysics"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+
+dependencies = [
+    "numpy>=1.24",
+    "packaging>=23",
+]
+
+[project.optional-dependencies]
+gui = [
+    "PySide6>=6.5",
+]
+graph = [
+    "networkx>=3.0",
+]
+io = [
+    "h5py>=3.8",
+]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+disperse-wrapper = "disperse_wrapper.cli:main"
+disperse-wrapper-gui = "disperse_wrapper_gui.main_window:main"
+
+[project.urls]
+"Homepage" = "https://github.com/Silkway37/DisPerSe_Wrap"
+"DisPerSE upstream" = "https://www2.iap.fr/users/sousbie/web/html/indexd41d.html"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["disperse_wrapper*", "disperse_wrapper_gui*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["disperse_wrapper", "disperse_wrapper_gui"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+ignore_missing_imports = true
